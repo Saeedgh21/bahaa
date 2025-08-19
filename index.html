@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Greeting App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1 id="greeting">Hello, World!</h1>
+    <button onclick="changeGreeting()">Change Greeting</button>
+    <script>
+        function changeGreeting() {
+            const greetings = ["Hello, World!", "Welcome!", "Hi there!", "Good day!", "Greetings!"];
+            const current = document.getElementById('greeting').innerText;
+            let nextIndex = (greetings.indexOf(current) + 1) % greetings.length;
+            document.getElementById('greeting').innerText = greetings[nextIndex];
+        }
+    </script>
+</body>
+</html>
