@@ -17,34 +17,74 @@
             cursor: pointer;
             transition: background 0.2s, transform 0.1s;
         }
-        button:hover {
-            background-color:black;
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        #clickMeBtn {
+            background-color: green;
+        }
+        #clickMeBtn:hover {
+            background-color: green;
+        }
+        #decreaseBtn {
+            background-color:yellow;
+            color: purple
+        }
+        #decreaseBtn:hover {
+            background-color:yellow;
+        }
+        #resetBtn {
+            background-color:red;
+        }
+        #resetBtn:hover {
+            background-color: red;
+        }
+        button {
+            padding: 16px 32px;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
         }
         button:active {
-            background-color: black;
-            transform: scale(0.200);
+            transform: scale(0.98);
         }
-        #count { font-size: 2em; margin: 20px; }
     </style>
 </head>
 <body>
     <h1>Click Counter</h1>
-    <p id="count">Count: 0</p>
-    <button onclick="changeCount(1)">Increment</button>
-    <button onclick="changeCount(-1)">Decrement</button>
-    <br><br>
+    <p id="count">Count: 5</p>
+    <div class="button-group">
         <button id="clickMeBtn">Click Me!</button>
-        <br><br>
         <button id="decreaseBtn">Decrease</button>
         <button id="resetBtn">Reset</button>
-        <script>
-            const countDisplay = document.getElementById('count');
-            const clickMeBtn = document.getElementById('clickMeBtn');
-            let count = 5;
-            clickMeBtn.addEventListener('click', function() {
-                count++;
+    </div>
+    <script>
+        const countDisplay = document.getElementById('count');
+        const clickMeBtn = document.getElementById('clickMeBtn');
+        const decreaseBtn = document.getElementById('decreaseBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        let count = 5;
+        clickMeBtn.addEventListener('click', function() {
+            count++;
+            countDisplay.innerText = `Count: ${count}`;
+        });
+        decreaseBtn.addEventListener('click', function() {
+            if (count > 0) {
+                count--;
                 countDisplay.innerText = `Count: ${count}`;
-            });
-        </script>
+            } else {
+                alert('Counter cannot go below 0!');
+            }
+        });
+        resetBtn.addEventListener('click', function() {
+            count = 0;
+            countDisplay.innerText = `Count: ${count}`;
+        });
+    </script>
 </body>
 </html>
