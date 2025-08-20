@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        button {
+            padding: 16px 32px;
+            font-size: 20px;
+            margin: 8px;
+            background-color:black;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background-color:black;
+        }
+        button:active {
+            background-color: black;
+            transform: scale(0.200);
+        }
+        #count { font-size: 2em; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Click Counter</h1>
+    <p id="count">Count: 0</p>
+    <button onclick="changeCount(1)">Increment</button>
+    <button onclick="changeCount(-1)">Decrement</button>
+    <br><br>
+        <button id="clickMeBtn">Click Me!</button>
+        <script>
+            const countDisplay = document.getElementById('count');
+            const clickMeBtn = document.getElementById('clickMeBtn');
+            let count = 5;
+            clickMeBtn.addEventListener('click', function() {
+                count++;
+                countDisplay.innerText = `Count: ${count}`;
+            });
+        </script>
+</body>
+</html>
